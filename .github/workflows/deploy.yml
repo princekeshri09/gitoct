@@ -2,16 +2,16 @@ name: hello-world
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
+      tags:
+        type: string
         description: Select the release
-        options:
-          - monalisa
-          - cschleiden
+        required: true
       message:
         required: true
       environment:
+        description: 'Environment to run tests against'
         type: environment
+        required: true
 jobs:
   my-job:
     runs-on: ubuntu-latest
