@@ -1,18 +1,15 @@
 name: hello-world
-'on':
+on:
   workflow_dispatch:
     inputs:
       name:
         type: choice
-        description: Who to greet
+        description: Select the release
         options:
           - monalisa
           - cschleiden
       message:
         required: true
-      use-emoji:
-        type: boolean
-        description: "Include \U0001F389\U0001F923 emojis"
       environment:
         type: environment
 jobs:
