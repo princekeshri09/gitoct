@@ -4,21 +4,20 @@ on:
   # Inputs the workflow accepts
     inputs:
       tags:
-        - '*'
-
+        description: 'Prismatic release to deployed'
+        required: true
+        type: choice
+        options:
+          $PRISMATIC_VERSIONS
+      message:
+        required: true
+      environment:
+        description: 'Environment to deploy'
+        type: environment
+        required: true
 jobs:
-  build:
+  my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        run: actions/checkout@v2
-
-      - name: Get Tag Name
-        id: get_tag
-        run: echo "TAG_NAME=${{ github.ref }}"
-        shell: bash
-
-      - name: Use Tag Name as Variable
-        run: |
-          echo "Tag name is $TAG_NAME"
-          # Use $TAG_NAME variable in your commands or scripts
+      - name: my-step
+        run: echo "Hello World!"
